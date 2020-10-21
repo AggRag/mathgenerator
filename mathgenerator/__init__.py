@@ -1,6 +1,6 @@
 import sys
 import traceback
-genList = []
+unsortedGenList = []
 
 
 class Generator:
@@ -15,7 +15,7 @@ class Generator:
         funcname = filename[filename.rfind('/'):].strip()
         funcname = funcname[1:-3]
         # print(funcname)
-        genList.append([id, title, self, funcname])
+        unsortedGenList.append([id, title, self, funcname])
 
     def __str__(self):
         return str(
@@ -27,5 +27,5 @@ class Generator:
 
 
 def getGenList():
-    correctedList = genList[-1:] + genList[:-1]
-    return correctedList
+    orderedGenList = sorted(unsortedGenList)
+    return orderedGenList
